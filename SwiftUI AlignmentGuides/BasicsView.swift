@@ -9,21 +9,25 @@
 // Subscribe on YouTube: https://youTube.com/@StewartLynch
 // Buy me a ko-fi:  https://ko-fi.com/StewartLynch
 
+// Link: https://www.youtube.com/watch?v=fdSGlCgz1fQ&ab_channel=StewartLynch
+
 
 import SwiftUI
 
 struct BasicsView: View {
     var body: some View {
-        VStack {
-            HStack {
+        VStack(alignment: .center) {
+            HStack(alignment: .lastTextBaseline) {
                 Text("Hello World")
                 Text("Sleep Tight")
                     .font(.title2)
             }
+            .border(.green)
             .font(.largeTitle)
             Divider()
             Text("Another View")
         }
+        .border(.red)
     }
 }
 
