@@ -15,18 +15,24 @@ import SwiftUI
 struct ZStackViews: View {
     var body: some View {
         VStack {
-            ZStack{
+            ZStack(alignment: .leading){
                 Rectangle()
                     .frame(width: 100, height: 100)
                     .foregroundColor(.red)
                    Rectangle()
                     .frame(width: 75, height: 50)
                     .foregroundColor(.blue)
+                    .alignmentGuide(.leading) { _ in
+                        50
+                    }
             }
-            ZStack {
+            ZStack(alignment: .top) {
                 Rectangle()
                     .frame(width: 100, height: 100)
                     .foregroundColor(.red)
+                    .alignmentGuide(.top) { _ in
+                        -50
+                    }
                 Rectangle()
                     .frame(width: 50, height: 75)
                     .foregroundColor(.blue)
@@ -39,14 +45,23 @@ struct ZStackViews: View {
                 Rectangle()
                     .frame(width: 50, height: 75)
                     .foregroundColor(.blue)
+                    .alignmentGuide(HorizontalAlignment.center) { _ in
+                        75
+                    }
+                    .alignmentGuide(VerticalAlignment.center) { _ in
+                        75
+                    }
             }
-            ZStack {
+            ZStack(alignment: .leading) {
                 Rectangle()
                     .frame(width: 100, height: 100)
                     .foregroundColor(.red)
                 Rectangle()
                     .frame(width: 75, height: 50)
                     .foregroundColor(.blue)
+                    .alignmentGuide(.leading) { d in
+                        d.width / 2
+                    }
             }
         }
     }
