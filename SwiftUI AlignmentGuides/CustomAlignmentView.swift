@@ -12,19 +12,40 @@
 
 import SwiftUI
 
+extension HorizontalAlignment {
+    enum TwoColumnAlignment: AlignmentID {
+        static func defaultValue(in context: ViewDimensions) -> CGFloat {
+            context[HorizontalAlignment.center]
+        }
+    }
+    
+    static var twoColumnAlignment: HorizontalAlignment {
+        HorizontalAlignment(TwoColumnAlignment.self)
+    }
+}
+
 struct CustomAlignmentView: View {
     var body: some View {
-            VStack {
+        VStack(alignment: .twoColumnAlignment) {
                 HStack {
                     Text("Country Name").bold()
+                        .alignmentGuide(.twoColumnAlignment) { d in
+                            d[.trailing]
+                        }
                     Text("Capital").bold()
                 }
                 HStack {
                     Text("Canada").bold()
+                        .alignmentGuide(.twoColumnAlignment) { d in
+                            d[.trailing]
+                        }
                     Text("Ottawa")
                 }
                 HStack {
                     Text("United States").bold()
+                        .alignmentGuide(.twoColumnAlignment) { d in
+                            d[.trailing]
+                        }
                     Text("Washington DC")
                 }
             }
